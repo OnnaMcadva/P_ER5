@@ -1,47 +1,47 @@
 #include "Warlock.hpp"
 
-Warlock::Warlock(const std::string& name, const std::string& title) : _name(name), _title(title)
-{
-	std::cout << _name << ": This looks like another boring day." << std::endl;
-}
-
 Warlock::Warlock()
 {
 }
 
-Warlock & Warlock::operator=(Warlock const & rhs)
+Warlock::Warlock(const Warlock& obj)
 {
-	this->_name = rhs._name;
-	this->_title = rhs._title;
-	return *this;
+    *this = obj;
 }
 
-Warlock::Warlock(Warlock const & obj)
+Warlock& Warlock::operator=(const Warlock& rhs)
 {
-	*this = obj;
+    m_name = rhs.m_name;
+    m_title = rhs.m_title;
+    return *this;
+}
+
+Warlock::Warlock(const std::string& name, const std::string& title) : m_name(name), m_title(title)
+{
+    std::cout << m_name << ": This looks like another boring day." << std::endl;
 }
 
 Warlock::~Warlock()
 {
-	std::cout << _name << ": My job here is done!" << std::endl;
+    std::cout << m_name << ": My job here is done!" << std::endl;
 }
 
-std::string const & Warlock::getName() const
+const std::string& Warlock::getName() const
 {
-	return (_name);
+    return m_name;
 }
 
-std::string const & Warlock::getTitle() const
+const std::string& Warlock::getTitle() const
 {
-	return (_title);
+    return m_title;
 }
 
-void	Warlock::setTitle(std::string const & str)
+void Warlock::setTitle(const std::string& str)
 {
-	_title = str;
+    m_title = str;
 }
 
-void	Warlock::introduce() const
+void Warlock::introduce() const
 {
-	std::cout << _name << ": I am " << _name << ", " << _title << "!" << std::endl;
+    std::cout << m_name << ": I am " << m_name << ", " << m_title << "!" << std::endl;
 }
