@@ -15,3 +15,5 @@ int main()
 
   return (0);
 }
+
+/* c++ -Wall -Wextra -Werror main.cpp Warlock.cpp */
