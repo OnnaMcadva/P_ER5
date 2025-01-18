@@ -19,3 +19,5 @@ int main()
   richard.forgetSpell("Fwoosh");
   richard.launchSpell("Fwoosh", bob);
 }
+
+/* c++ Warlock.cpp ASpell.cpp ATarget.cpp Fwoosh.cpp Dummy.cpp main.cpp */
