@@ -7,7 +7,7 @@ TargetGenerator::TargetGenerator(TargetGenerator const & src)
 
 TargetGenerator & TargetGenerator::operator=(TargetGenerator const & src)
 {
-	_target = src._target;
+	m_target = src.m_target;
 	return (*this);
 }
 
@@ -22,20 +22,20 @@ void TargetGenerator::learnTargetType(ATarget* target)
 {
 	if (target)
 	{
-		_target[target->getType()] = target;
+		m_target[target->getType()] = target;
 	}
 }
 
 void TargetGenerator::forgetTargetType(std::string const & target)
 {
-	if (_target.find(target) != _target.end())
-		_target.erase(_target.find(target));
+	if (m_target.find(target) != m_target.end())
+		m_target.erase(m_target.find(target));
 }
 
 ATarget* TargetGenerator::createTarget(std::string const &target)
 {
 	ATarget* tmp = NULL;
-	if (_target.find(target) != _target.end())
-		tmp = _target[target];
+	if (m_target.find(target) != m_target.end())
+		tmp = m_target[target];
 	return (tmp);
 }

@@ -7,7 +7,7 @@ SpellBook::SpellBook(SpellBook const & src)
 
 SpellBook & SpellBook::operator=(SpellBook const & src)
 {
-	_SpellBook = src._SpellBook;
+	m_SpellBook = src.m_SpellBook;
 	return (*this);
 }
 
@@ -21,20 +21,21 @@ void SpellBook::learnSpell(ASpell* spell)
 {
 	if (spell)
 	{
-		_SpellBook[spell->getName()] = spell->clone();
+		m_SpellBook[spell->getName()] = spell->clone();
 	}
 }
 
 void SpellBook::forgetSpell(std::string const & SpellName)
 {
-	if (_SpellBook.find(SpellName) != _SpellBook.end())
-		_SpellBook.erase(_SpellBook.find(SpellName));
+	if (m_SpellBook.find(SpellName) != m_SpellBook.end())
+		m_SpellBook.erase(m_SpellBook.find(SpellName));
 }
 
 ASpell* SpellBook::createSpell(std::string const &SpellName)
 {
 	ASpell* tmp = NULL;
-	if (_SpellBook.find(SpellName) != _SpellBook.end())
-		tmp = _SpellBook[SpellName];
+	if (m_SpellBook.find(SpellName) != m_SpellBook.end())
+		tmp = m_SpellBook[SpellName];
 	return (tmp);
 }
+
