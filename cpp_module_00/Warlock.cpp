@@ -11,8 +11,10 @@ Warlock::Warlock(const Warlock& obj)
 
 Warlock& Warlock::operator=(const Warlock& rhs)
 {
-    m_name = rhs.m_name;
-    m_title = rhs.m_title;
+    if (this != &rhs) {
+        m_name = rhs.m_name;
+        m_title = rhs.m_title;
+    }
     return *this;
 }
 
