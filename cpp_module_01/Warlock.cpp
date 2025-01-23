@@ -52,7 +52,7 @@ void Warlock::introduce() const
 void Warlock::learnSpell(ASpell* spell)
 {
     if (spell && m_SpellBook.find(spell->getName()) == m_SpellBook.end()) {
-        m_SpellBook[spell->getName()] = spell->clone();
+        m_SpellBook.insert(std::make_pair(spell->getName(), spell->clone()));
     }
 }
 
