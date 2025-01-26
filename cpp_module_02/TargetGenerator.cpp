@@ -1,11 +1,11 @@
 #include "TargetGenerator.hpp"
 
-TargetGenerator::TargetGenerator(TargetGenerator const & src)
+TargetGenerator::TargetGenerator(const TargetGenerator& src)
 {
 	*this = src;
 }
 
-TargetGenerator & TargetGenerator::operator=(TargetGenerator const & src)
+TargetGenerator & TargetGenerator::operator=(const TargetGenerator& src)
 {
 	m_target = src.m_target;
 	return (*this);

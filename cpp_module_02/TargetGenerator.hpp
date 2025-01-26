@@ -5,8 +5,8 @@
 class TargetGenerator
 {
 	private :
-		TargetGenerator(TargetGenerator const & src);
-		TargetGenerator & operator=(TargetGenerator const & src);
+		TargetGenerator(const TargetGenerator& src);
+		TargetGenerator & operator=(const TargetGenerator& src);
 		std::map < std::string, ATarget*> m_target;
 	public :
 		TargetGenerator();

@@ -5,8 +5,8 @@
 class SpellBook
 {
 	private :
-		SpellBook(SpellBook const & src);
-		SpellBook & operator=(SpellBook const & src);
+		SpellBook(const SpellBook& src);
+		SpellBook & operator=(const SpellBook& src);
 		std::map < std::string, ASpell*> m_SpellBook;
 	public :
 		SpellBook();
@@ -15,4 +15,3 @@ class SpellBook
 		void forgetSpell(std::string const &);
 		ASpell* createSpell(std::string const &);
 };
-
