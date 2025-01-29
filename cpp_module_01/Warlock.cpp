@@ -47,7 +47,27 @@
                 m_SpellBook.insert(std::make_pair(spell->getName(), spell->clone()));
             }
         }
-        void Warlock::forgetSpell(const std::string& SpellName)
+
+
+void Warlock::forgetSpell(const std::string& SpellName)
+{
+    if (m_SpellBook.count(SpellName)) // Проверка наличия ключа
+    {
+        delete m_SpellBook[SpellName]; // Удаление объекта
+        m_SpellBook.erase(SpellName); // Удаление ключа
+    }
+}
+void Warlock::launchSpell(const std::string& SpellName, const ATarget& target)
+{
+    if (m_SpellBook.count(SpellName)) // Проверка наличия ключа
+    {
+        m_SpellBook[SpellName]->launch(target); // Использование заклинания
+    }
+}
+
+
+
+        /*void Warlock::forgetSpell(const std::string& SpellName)
         {
             std::map<std::string, ASpell*>::iterator it = m_SpellBook.find(SpellName);
             if (it != m_SpellBook.end())
@@ -63,4 +83,4 @@
             {
                 it->second->launch(target);
             }
-        }
+        }*/
