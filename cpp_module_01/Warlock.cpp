@@ -1,86 +1,63 @@
 #include "Warlock.hpp"
 
-        Warlock::Warlock()
-        {}
-        Warlock::Warlock(const Warlock& obj)
-        {
-            *this = obj;
-        }
-        Warlock& Warlock::operator=(const Warlock& rhs)
-        {
-            if (this != &rhs)
-            {
-                m_name = rhs.m_name;
-                m_title = rhs.m_title;
-                m_SpellBook = rhs.m_SpellBook;
-            }
-            return *this;
-        }
-        Warlock::Warlock(const std::string& name, const std::string& title) : m_name(name) , m_title(title)
-        {
-            std::cout << m_name << ": This looks like another boring day." << std::endl;
-        }
-        Warlock::~Warlock()
-        {
-            std::cout << m_name << ": My job here is done!" << std::endl;
-        }
-        const std::string& Warlock::getName() const
-        {
-            return m_name;
-        }
-        const std::string& Warlock::getTitle() const
-        {
-            return m_title;
-        }
-        void Warlock::setTitle(const std::string& str)
-        {
-            m_title = str;
-        }
-        void Warlock::introduce() const
-        {
-            std::cout << m_name << ": I am " << m_name << ", " << m_title << "!" << std::endl;
-        }
-        void Warlock::learnSpell(ASpell* spell)
-        {
-            if (spell && m_SpellBook.find(spell->getName()) == m_SpellBook.end())
-            {
-                m_SpellBook.insert(std::make_pair(spell->getName(), spell->clone()));
-            }
-        }
-
-
-void Warlock::forgetSpell(const std::string& SpellName)
+Warlock::Warlock(const std::string& name, const std::string& title)
+    : m_name(name), m_title(title)
 {
-    if (m_SpellBook.count(SpellName)) // Проверка наличия ключа
-    {
-        delete m_SpellBook[SpellName]; // Удаление объекта
-        m_SpellBook.erase(SpellName); // Удаление ключа
-    }
+    std::cout << m_name << ": This looks like another boring day." << std::endl;
 }
-void Warlock::launchSpell(const std::string& SpellName, const ATarget& target)
+
+Warlock::~Warlock()
 {
-    if (m_SpellBook.count(SpellName)) // Проверка наличия ключа
+    // Удаляем все заклинания из книги
+    for (std::map<std::string, ASpell*>::iterator it = m_SpellBook.begin(); it != m_SpellBook.end(); ++it)
     {
-        m_SpellBook[SpellName]->launch(target); // Использование заклинания
+        delete it->second;
+    }
+    m_SpellBook.clear();
+    std::cout << m_name << ": My job here is done!" << std::endl;
+}
+
+const std::string& Warlock::getName() const
+{
+    return m_name;
+}
+
+const std::string& Warlock::getTitle() const
+{
+    return m_title;
+}
+
+void Warlock::setTitle(const std::string& str)
+{
+    m_title = str;
+}
+
+void Warlock::introduce() const
+{
+    std::cout << m_name << ": I am " << m_name << ", " << m_title << "!" << std::endl;
+}
+
+void Warlock::learnSpell(ASpell* spell)
+{
+    if (spell && m_SpellBook.find(spell->getName()) == m_SpellBook.end())
+    {
+        m_SpellBook[spell->getName()] = spell->clone();
     }
 }
 
+void Warlock::forgetSpell(const std::string& spellName)
+{
+    if (m_SpellBook.count(spellName))
+    {
+        delete m_SpellBook[spellName];
+        m_SpellBook.erase(spellName);
+    }
+}
 
-
-        /*void Warlock::forgetSpell(const std::string& SpellName)
-        {
-            std::map<std::string, ASpell*>::iterator it = m_SpellBook.find(SpellName);
-            if (it != m_SpellBook.end())
-            {
-                delete it->second;
-                m_SpellBook.erase(it);
-            }
-        }
-        void Warlock::launchSpell(const std::string& SpellName, const ATarget& target)
-        {
-            std::map<std::string, ASpell*>::iterator it = m_SpellBook.find(SpellName);
-            if (it != m_SpellBook.end())
-            {
-                it->second->launch(target);
-            }
-        }*/
+void Warlock::launchSpell(const std::string& spellName, const ATarget& target)
+{
+    if (m_SpellBook.count(spellName))
+    {
+        m_SpellBook[spellName]->launch(target);
+    }
+}
