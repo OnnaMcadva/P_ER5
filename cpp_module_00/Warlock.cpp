@@ -1,22 +1,5 @@
 #include "Warlock.hpp"
 
-        /*Warlock::Warlock()
-        {}
-        Warlock::Warlock(const Warlock& obj)
-        {
-            *this = obj;
-        }
-        Warlock& Warlock::operator=(const Warlock& rhs)
-        {
-            if (this != &rhs)
-            {
-                m_name = rhs.m_name;
-                m_title = rhs.m_title;
-            }
-            return *this;
-        }*/
-
-
         Warlock::Warlock(const std::string& name, const std::string& title) : m_name(name) , m_title(title)
         {
             std::cout << m_name << ": This looks like another boring day." << std::endl;
