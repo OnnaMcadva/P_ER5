@@ -8,12 +8,12 @@ Warlock::Warlock(const std::string& name, const std::string& title)
 
 Warlock::~Warlock()
 {
-    // Удаляем все заклинания из книги
-    for (std::map<std::string, ASpell*>::iterator it = m_SpellBook.begin(); it != m_SpellBook.end(); ++it)
-    {
-        delete it->second;
-    }
-    m_SpellBook.clear();
+    // // Удаляем все заклинания из книги
+    // for (std::map<std::string, ASpell*>::iterator it = m_SpellBook.begin(); it != m_SpellBook.end(); ++it)
+    // {
+    //     delete it->second;
+    // }
+    // m_SpellBook.clear();
     std::cout << m_name << ": My job here is done!" << std::endl;
 }
 
