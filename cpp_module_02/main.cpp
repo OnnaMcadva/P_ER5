@@ -31,3 +31,46 @@ int main()
   richard.launchSpell("Polymorph", *wall);
   richard.launchSpell("Fireball", *wall);
 }
+
+// int main()
+// {
+//   Warlock pidor("Pidor", "Ivanovich");
+//   Warlock drugoy("CHUJ", "s gory");
+
+//   ASpell* ball = new Fireball;
+//   ASpell* morph = new Polymorph;
+//   ATarget* wall = new BrickWall;
+//   Dummy dummy;
+//   TargetGenerator targets;
+
+//   targets.learnTargetType(wall);
+//   targets.learnTargetType(wall);
+//   targets.learnTargetType(&dummy);
+//   targets.learnTargetType(&dummy);
+//   targets.learnTargetType(&dummy);
+//   targets.learnTargetType(NULL);
+
+//   pidor.learnSpell(ball);
+//   drugoy.learnSpell(morph);
+
+//   pidor.launchSpell("Fireball", dummy);
+//   pidor.forgetSpell("Fireball");
+//   pidor.launchSpell("Fireball", dummy);
+
+//   ATarget* newdummy = targets.createTarget("Target Practice Dummy");
+//   ATarget* shit = targets.createTarget("Shit");
+//   targets.learnTargetType(shit);
+
+
+//   drugoy.launchSpell("Polymorph", *newdummy);
+//   drugoy.launchSpell("Fireball", dummy);
+
+//   targets.forgetTargetType("Target Practice Dummy");
+//   targets.forgetTargetType("Shit");
+  
+
+//   delete ball;
+//   delete morph;
+//   delete wall;
+//   delete newdummy;
+// }
