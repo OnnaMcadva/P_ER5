@@ -48,6 +48,5 @@ void Warlock::launchSpell(const std::string& spellName, const ATarget& target)
     if (spell)
     {
         spell->launch(target);
-        delete spell; // Удаляем заклинание после использования
     }
 }
