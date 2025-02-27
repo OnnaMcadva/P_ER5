@@ -6,8 +6,8 @@
 class TargetGenerator
 {
 private:
-    TargetGenerator(const TargetGenerator&); // Запрещаем копирование
-    TargetGenerator& operator=(const TargetGenerator&); // Запрещаем присваивание
+    TargetGenerator(const TargetGenerator&);
+    TargetGenerator& operator=(const TargetGenerator&);
 
     std::map<std::string, ATarget*> m_target;
 

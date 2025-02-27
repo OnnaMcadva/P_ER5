@@ -6,8 +6,8 @@
 class SpellBook
 {
 private:
-    SpellBook(const SpellBook&); // Запрещаем копирование
-    SpellBook& operator=(const SpellBook&); // Запрещаем присваивание
+    SpellBook(const SpellBook&);
+    SpellBook& operator=(const SpellBook&);
 
     std::map<std::string, ASpell*> m_SpellBook;
 
