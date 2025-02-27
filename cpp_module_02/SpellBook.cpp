@@ -31,9 +31,13 @@ void SpellBook::forgetSpell(const std::string& spellName)
 
 ASpell* SpellBook::createSpell(const std::string& spellName)
 {
-    if (m_SpellBook.find(spellName) != m_SpellBook.end())
+    if (m_SpellBook.count(spellName))
     {
         return m_SpellBook[spellName]->clone();
     }
+    // if (m_SpellBook.find(spellName) != m_SpellBook.end())
+    // {
+    //     return m_SpellBook[spellName]->clone();
+    // }
     return NULL;
 }
